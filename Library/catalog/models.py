@@ -60,6 +60,9 @@ class Book(models.Model):
         Genre, help_text="Sélectionnez le genre du livre"
     )
 
+    def __str__(self):
+        return self.title
+
 class State(models.Model):
     id = models.UUIDField(
         primary_key=True,
@@ -85,3 +88,6 @@ class State(models.Model):
         help_text="Status du livre ?",
         choices=VAR_STATUS
     )
+
+    def __str__(self):
+        return f'{self.id} - {self.book.title} - {self.status}'
