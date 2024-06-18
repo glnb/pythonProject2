@@ -47,12 +47,12 @@ class Book(models.Model):
         help_text="ISBN de 13 caractères",
     )
     author = models.ForeignKey(
-        'Author',
+        Author,
         null=True,
         on_delete=models.RESTRICT,
     )
     language = models.ForeignKey(
-        'Language',
+        Language,
         on_delete=models.SET_NULL,
         null=True,
     )
@@ -67,7 +67,7 @@ class State(models.Model):
         help_text="Numéros unique du livre dans la librairie"
     )
     book = models.ForeignKey(
-        'Book',
+        Book,
         on_delete=models.RESTRICT,
         null=True
     )
