@@ -90,4 +90,5 @@ class State(models.Model):
     )
 
     def __str__(self):
-        return f'{self.id} - {self.book.title} - {self.status}'
+        return f'{str(self.id.int)[:3]} - {self.book.title} - {self.status}'
+        #return f'{str(self.id.int)[:3]} - {self.book.title} - {self.status}'
