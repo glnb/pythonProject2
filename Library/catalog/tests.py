@@ -38,7 +38,28 @@ class AuthorModelTest(TestCase):
         self.assertEqual(test_author.__str__(), test_author.name)
 
 class BookModelTest(TestCase):
-    def
+    def setUp(self):
+        self.author= Author.objects.create(name="Pablo")
+        self.language = Language.objects.create(name="Spanish")
+        self.book = Book.objects.create(
+            author=self.author,
+            language=self.language,
+            title="",
+            years="2024-03-30",
+            isbn="1234567891011",
+            summary="un test"
+        )
+        self.book.genre.set([Genre.objects.create(name="Aventure")])
+
+    # Copier et coller en corrigeant certains point vu au-dessus
+    def test_string_representation(self):
+        self.assertEqual(str(self.book), self.book.title)
+
+    def test_book_creation(self):
+        self.assertTrue(isinstance(self.book, Book))
+        self.assertEqual(self.book.__str__(), self.book.title)
+        self.assertEqual(self.book.isbn, "1234567891011")
+
 
 
 
